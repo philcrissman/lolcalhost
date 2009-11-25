@@ -51,9 +51,33 @@ class ShellController < ApplicationController
   
   def passwd(args)
     if args.empty?
-      return "Usage: change your password"
+      return "Usage: passwd<br/>Change your password"
     else
       # todo
+    end
+  end
+  
+  def login(args)
+    if args.empty?
+      return "Usage: login<br/>Login to the system"
+    else
+      # todo
+    end
+  end
+  
+  def su(args)
+    if args.empty?
+      return "You're kidding, right?"
+    else
+      return "Nope"
+    end
+  end
+  
+  def sudo(args)
+    if args.empty?
+      return "Usage: don't"
+    else
+      return "Oh no you didn't"
     end
   end
   
@@ -84,6 +108,10 @@ class ShellController < ApplicationController
       ls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list the contents of this directory.<br/>
       help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display this help message.<br />
       pwd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print current working directory.<br/>
+      clear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clear the screen<br/>
+      useradd&nbsp;&nbsp;&nbsp;add a user; not yet implemented<br/>
+      passwd&nbsp;&nbsp;&nbsp;&nbsp;change your password; not yet implemented<br/>
+      login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;login to the system; not yet implemented
       EOM
     elsif self.respond_to?(args[0].to_sym)
       cmd = args.shift
