@@ -1,0 +1,21 @@
+body {
+  font-family: Monaco, "Lucida Console", monospace;
+  font-size: 1.2em;
+  background: black;
+  color: #0f0;
+  line-height: 22px;
+}
+
+:focus {
+  outline: 0;
+}
+
+input {
+  border: none;
+  border: 0px;
+  background: black;
+  color: #0f0;
+  font-family: Monaco, "Lucida Console", monospace;
+  font-size: 1.0em;
+  cursor: block;
+}
