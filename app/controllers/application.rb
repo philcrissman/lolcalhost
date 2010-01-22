@@ -10,18 +10,20 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '8a9584ee4929140aa1492dafcd9e8cbf'
   
+  protected
+    def current_user
+      return @current_user if defined?(@current_user)
+      @current_user = current_user_session && current_user_session.record
+    end
+  
+  
   private
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
     end
     
-    def current_user
-      return @current_user if defined?(@current_user)
-      @current_user = current_user_session && current_user_session.record
-    end
-    
-    def require_user
+    def must_be_logged_in
       unless current_user
         store_location
         flash[:notice] = "-rash: access denied"
@@ -30,7 +32,7 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def require_no_user
+    def must_be_logged_out
       if current_user
         store_location
         flash[:notice] = "-rash: you are already logged in"
@@ -43,6 +45,9 @@ class ApplicationController < ActionController::Base
       session[:return_to] = request.request_uri
     end
     
+    def logged_in?
+      !!current_user
+    end
     
     # this method may not be needed... ?
     def redirect_back_or_default(default)

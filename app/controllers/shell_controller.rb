@@ -38,7 +38,16 @@ class ShellController < ApplicationController
     else
       #todo
       # render :template => 'users/new' ## maybe?
+      #@user = User.new
+      #return "username: <input type=\"text\" autocomplete=\"off\" name=\"password\" id=\"password_password\" style=\"width:70%;margin:-2px 0 0 -2px;\"><script>var pause=true;</script>"
     end
+  end
+  
+  def get_password
+    
+  end
+  
+  def get_password_confirmation
   end
   
   def clear(args)
