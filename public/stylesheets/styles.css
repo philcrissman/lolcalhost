@@ -3,7 +3,7 @@ body {
   font-size: 1.2em;
   background: #000;
   color: #0f0;
-  line-height: 22px;
+  line-height: 1.5em;
 }
 
 :focus {

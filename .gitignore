@@ -4,3 +4,5 @@ tmp/*
 doc/*
 tmp/restart.txt
 coverage/*
+db/test.sqlite3
+db/development.sqlite3
