@@ -7,4 +7,5 @@ group :development, :test do
   gem 'sqlite3-ruby'
 
   gem 'shoulda', '~> 2.10.3'
+  gem 'rr', '~> 0.10.9'
 end
