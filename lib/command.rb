@@ -1,4 +1,6 @@
 module Command
+  extend self
+
   class CommandExists < StandardError
     def initialize(name)
       @@name = name
@@ -16,6 +18,8 @@ module Command
       @commands.has_key?(command_name)
     end
 
+    def commands; @commands.keys end
+
     def [](command_name)
       @commands[command_name]
     end
@@ -30,14 +34,12 @@ module Command
       end
     end
   end
-
-  extend self
-
+  
   def command_space
     @command_space ||= CommandSpace.new
   end
 
-  delegate :register, :to => :command_space
+  delegate :commands, :register, :to => :command_space
 
   def parse(command_line)
     (name, *args) = command_line.split(/ +/)
@@ -53,3 +55,5 @@ module Command
     command_space.include?(command)
   end
 end
+
+require 'command/commands'
