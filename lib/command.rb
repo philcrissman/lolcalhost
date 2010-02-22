@@ -30,4 +30,3 @@ module Command
   end
 end
 
-require 'commands'
