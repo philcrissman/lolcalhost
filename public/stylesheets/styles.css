@@ -19,3 +19,8 @@ input {
   font-size: 1.0em;
   cursor: block;
 }
+
+pre {
+  font-family: Monaco, "Lucida Console", monospace;
+  font-size: 1.0em;
+}
